@@ -1,33 +1,40 @@
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
+  // output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
 }
 
-model User {
-  id            String    @id @default(uuid())
-  name          String
-  email         String    @unique
-  emailVerified Boolean   @default(false)
-  image         String?
-  role          Role      @default(buyer)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  sessions      Session[]
-  accounts      Account[]
-  properties    Property[]
-  bookings      Booking[]
-
-  @@map("user")
-}
-
 enum Role {
   buyer
   seller
   admin
+}
+
+model User {
+  id            String   @id @default(uuid())
+  name          String
+  email         String   @unique
+  emailVerified Boolean  @default(false)
+  image         String?
+  role          Role     @default(buyer)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Auth Relations
+  sessions Session[]
+  accounts Account[]
+
+  // Property Relations (Named Relations)
+  ownedProperties  Property[] @relation("PropertyOwner")
+  boughtProperties Property[] @relation("PropertyBuyer")
+
+  // Booking Relation
+  bookings Booking[]
+
+  @@map("user")
 }
 
 model Session {
@@ -78,18 +85,33 @@ model Verification {
 }
 
 model Property {
-  id          String   @id @default(uuid())
-  title       String
-  description String
-  price       Float
-  location    String
-  ownerId     String
-  owner       User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
-  bookings    Booking[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String   @id @default(uuid())
+  title        String
+  type         String   @default("villa") // e.g., villa, apartment, house
+  price        Float
+  location     String
+  bedrooms     Int
+  bathrooms    Int
+  area         Int
+  description  String?
+  image        String?
+  status       String   @default("pending") // e.g., pending, available, sold
+  dateUploaded DateTime @default(now())
+
+  // Owner / Seller Relationship
+  ownerId String
+  owner   User   @relation("PropertyOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+
+  // Buyer Relationship (যদি সরাসরি Sold হিস্ট্রি ট্র্যাক রাখতে চান)
+  buyerId String?
+  buyer   User?   @relation("PropertyBuyer", fields: [buyerId], references: [id], onDelete: SetNull)
+
+  bookings  Booking[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 
   @@index([ownerId])
+  @@index([buyerId])
   @@map("property")
 }
 
@@ -100,10 +122,12 @@ model Booking {
   startDate  DateTime
   endDate    DateTime
   status     String   @default("pending") // e.g., pending, confirmed, cancelled
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([userId])
   @@index([propertyId])
