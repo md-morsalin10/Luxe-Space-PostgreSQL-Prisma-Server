@@ -23,12 +23,17 @@ export * from './enums';
  */
 export type User = Prisma.UserModel
 /**
- * Model Property
+ * Model account
  * 
  */
-export type Property = Prisma.PropertyModel
+export type account = Prisma.accountModel
 /**
- * Model Booking
+ * Model session
  * 
  */
-export type Booking = Prisma.BookingModel
+export type session = Prisma.sessionModel
+/**
+ * Model verification
+ * 
+ */
+export type verification = Prisma.verificationModel

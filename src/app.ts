@@ -1,18 +1,18 @@
 import express from "express"
 import cors from "cors"
-import router from "./services/property";
+import userRouter from "./services/users";
 
 
 const app = express()
 app.use(cors())
 app.use(express.json());
 
-app.use(router)
+app.use(userRouter)
 
 app.get("/", async (req, res) => {
   res.send({
-    success:true,
-    message:"Server is running smoothly.................!"
+    success: true,
+    message: "Server is running smoothly.................!"
   });
 })
 
