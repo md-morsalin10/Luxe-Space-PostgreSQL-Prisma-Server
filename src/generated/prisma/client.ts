@@ -47,17 +47,27 @@ export { Prisma }
  */
 export type User = Prisma.UserModel
 /**
- * Model account
+ * Model Session
  * 
  */
-export type account = Prisma.accountModel
+export type Session = Prisma.SessionModel
 /**
- * Model session
+ * Model Account
  * 
  */
-export type session = Prisma.sessionModel
+export type Account = Prisma.AccountModel
 /**
- * Model verification
+ * Model Verification
  * 
  */
-export type verification = Prisma.verificationModel
+export type Verification = Prisma.VerificationModel
+/**
+ * Model Property
+ * 
+ */
+export type Property = Prisma.PropertyModel
+/**
+ * Model Booking
+ * 
+ */
+export type Booking = Prisma.BookingModel

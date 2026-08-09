@@ -9,7 +9,9 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/User'
-export type * from './models/account'
-export type * from './models/session'
-export type * from './models/verification'
+export type * from './models/Session'
+export type * from './models/Account'
+export type * from './models/Verification'
+export type * from './models/Property'
+export type * from './models/Booking'
 export type * from './commonInputTypes'

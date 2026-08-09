@@ -1,13 +1,19 @@
 import express from "express"
 import cors from "cors"
-import userRouter from "./services/users";
-
+import userRouter from "./services/users.js";
+import { toNodeHandler } from "better-auth/node";
+import { auth } from "./lib/auth.js";
 
 const app = express()
-app.use(cors())
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true,         
+}));
 app.use(express.json());
 
 app.use(userRouter)
+
+app.all(/^\/api\/auth/, toNodeHandler(auth));
 
 app.get("/", async (req, res) => {
   res.send({

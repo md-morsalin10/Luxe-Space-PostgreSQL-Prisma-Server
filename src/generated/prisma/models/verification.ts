@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `verification` model and its related types.
+ * This file exports the `Verification` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
 /**
- * Model verification
+ * Model Verification
  * 
  */
-export type verificationModel = runtime.Types.Result.DefaultSelection<Prisma.$verificationPayload>
+export type VerificationModel = runtime.Types.Result.DefaultSelection<Prisma.$VerificationPayload>
 
 export type AggregateVerification = {
   _count: VerificationCountAggregateOutputType | null
@@ -83,37 +83,37 @@ export type VerificationCountAggregateInputType = {
 
 export type VerificationAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which verification to aggregate.
+   * Filter which Verification to aggregate.
    */
-  where?: Prisma.verificationWhereInput
+  where?: Prisma.VerificationWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of verifications to fetch.
+   * Determine the order of Verifications to fetch.
    */
-  orderBy?: Prisma.verificationOrderByWithRelationInput | Prisma.verificationOrderByWithRelationInput[]
+  orderBy?: Prisma.VerificationOrderByWithRelationInput | Prisma.VerificationOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.verificationWhereUniqueInput
+  cursor?: Prisma.VerificationWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` verifications from the position of the cursor.
+   * Take `±n` Verifications from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` verifications.
+   * Skip the first `n` Verifications.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned verifications
+   * Count returned Verifications
   **/
   _count?: true | VerificationCountAggregateInputType
   /**
@@ -141,11 +141,11 @@ export type GetVerificationAggregateType<T extends VerificationAggregateArgs> = 
 
 
 
-export type verificationGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.verificationWhereInput
-  orderBy?: Prisma.verificationOrderByWithAggregationInput | Prisma.verificationOrderByWithAggregationInput[]
+export type VerificationGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.VerificationWhereInput
+  orderBy?: Prisma.VerificationOrderByWithAggregationInput | Prisma.VerificationOrderByWithAggregationInput[]
   by: Prisma.VerificationScalarFieldEnum[] | Prisma.VerificationScalarFieldEnum
-  having?: Prisma.verificationScalarWhereWithAggregatesInput
+  having?: Prisma.VerificationScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: VerificationCountAggregateInputType | true
@@ -165,7 +165,7 @@ export type VerificationGroupByOutputType = {
   _max: VerificationMaxAggregateOutputType | null
 }
 
-export type GetVerificationGroupByPayload<T extends verificationGroupByArgs> = Prisma.PrismaPromise<
+export type GetVerificationGroupByPayload<T extends VerificationGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<VerificationGroupByOutputType, T['by']> &
       {
@@ -180,19 +180,19 @@ export type GetVerificationGroupByPayload<T extends verificationGroupByArgs> = P
 
 
 
-export type verificationWhereInput = {
-  AND?: Prisma.verificationWhereInput | Prisma.verificationWhereInput[]
-  OR?: Prisma.verificationWhereInput[]
-  NOT?: Prisma.verificationWhereInput | Prisma.verificationWhereInput[]
-  id?: Prisma.StringFilter<"verification"> | string
-  identifier?: Prisma.StringFilter<"verification"> | string
-  value?: Prisma.StringFilter<"verification"> | string
-  expiresAt?: Prisma.DateTimeFilter<"verification"> | Date | string
-  createdAt?: Prisma.DateTimeFilter<"verification"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"verification"> | Date | string
+export type VerificationWhereInput = {
+  AND?: Prisma.VerificationWhereInput | Prisma.VerificationWhereInput[]
+  OR?: Prisma.VerificationWhereInput[]
+  NOT?: Prisma.VerificationWhereInput | Prisma.VerificationWhereInput[]
+  id?: Prisma.StringFilter<"Verification"> | string
+  identifier?: Prisma.StringFilter<"Verification"> | string
+  value?: Prisma.StringFilter<"Verification"> | string
+  expiresAt?: Prisma.DateTimeFilter<"Verification"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"Verification"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Verification"> | Date | string
 }
 
-export type verificationOrderByWithRelationInput = {
+export type VerificationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   identifier?: Prisma.SortOrder
   value?: Prisma.SortOrder
@@ -201,61 +201,61 @@ export type verificationOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type verificationWhereUniqueInput = Prisma.AtLeast<{
+export type VerificationWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  AND?: Prisma.verificationWhereInput | Prisma.verificationWhereInput[]
-  OR?: Prisma.verificationWhereInput[]
-  NOT?: Prisma.verificationWhereInput | Prisma.verificationWhereInput[]
-  identifier?: Prisma.StringFilter<"verification"> | string
-  value?: Prisma.StringFilter<"verification"> | string
-  expiresAt?: Prisma.DateTimeFilter<"verification"> | Date | string
-  createdAt?: Prisma.DateTimeFilter<"verification"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"verification"> | Date | string
+  AND?: Prisma.VerificationWhereInput | Prisma.VerificationWhereInput[]
+  OR?: Prisma.VerificationWhereInput[]
+  NOT?: Prisma.VerificationWhereInput | Prisma.VerificationWhereInput[]
+  identifier?: Prisma.StringFilter<"Verification"> | string
+  value?: Prisma.StringFilter<"Verification"> | string
+  expiresAt?: Prisma.DateTimeFilter<"Verification"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"Verification"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Verification"> | Date | string
 }, "id">
 
-export type verificationOrderByWithAggregationInput = {
+export type VerificationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   identifier?: Prisma.SortOrder
   value?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  _count?: Prisma.verificationCountOrderByAggregateInput
-  _max?: Prisma.verificationMaxOrderByAggregateInput
-  _min?: Prisma.verificationMinOrderByAggregateInput
+  _count?: Prisma.VerificationCountOrderByAggregateInput
+  _max?: Prisma.VerificationMaxOrderByAggregateInput
+  _min?: Prisma.VerificationMinOrderByAggregateInput
 }
 
-export type verificationScalarWhereWithAggregatesInput = {
-  AND?: Prisma.verificationScalarWhereWithAggregatesInput | Prisma.verificationScalarWhereWithAggregatesInput[]
-  OR?: Prisma.verificationScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.verificationScalarWhereWithAggregatesInput | Prisma.verificationScalarWhereWithAggregatesInput[]
-  id?: Prisma.StringWithAggregatesFilter<"verification"> | string
-  identifier?: Prisma.StringWithAggregatesFilter<"verification"> | string
-  value?: Prisma.StringWithAggregatesFilter<"verification"> | string
-  expiresAt?: Prisma.DateTimeWithAggregatesFilter<"verification"> | Date | string
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"verification"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"verification"> | Date | string
+export type VerificationScalarWhereWithAggregatesInput = {
+  AND?: Prisma.VerificationScalarWhereWithAggregatesInput | Prisma.VerificationScalarWhereWithAggregatesInput[]
+  OR?: Prisma.VerificationScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.VerificationScalarWhereWithAggregatesInput | Prisma.VerificationScalarWhereWithAggregatesInput[]
+  id?: Prisma.StringWithAggregatesFilter<"Verification"> | string
+  identifier?: Prisma.StringWithAggregatesFilter<"Verification"> | string
+  value?: Prisma.StringWithAggregatesFilter<"Verification"> | string
+  expiresAt?: Prisma.DateTimeWithAggregatesFilter<"Verification"> | Date | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Verification"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Verification"> | Date | string
 }
 
-export type verificationCreateInput = {
+export type VerificationCreateInput = {
   id: string
   identifier: string
   value: string
   expiresAt: Date | string
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
 }
 
-export type verificationUncheckedCreateInput = {
+export type VerificationUncheckedCreateInput = {
   id: string
   identifier: string
   value: string
   expiresAt: Date | string
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
 }
 
-export type verificationUpdateInput = {
+export type VerificationUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   identifier?: Prisma.StringFieldUpdateOperationsInput | string
   value?: Prisma.StringFieldUpdateOperationsInput | string
@@ -264,7 +264,7 @@ export type verificationUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type verificationUncheckedUpdateInput = {
+export type VerificationUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   identifier?: Prisma.StringFieldUpdateOperationsInput | string
   value?: Prisma.StringFieldUpdateOperationsInput | string
@@ -273,16 +273,16 @@ export type verificationUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type verificationCreateManyInput = {
+export type VerificationCreateManyInput = {
   id: string
   identifier: string
   value: string
   expiresAt: Date | string
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
 }
 
-export type verificationUpdateManyMutationInput = {
+export type VerificationUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   identifier?: Prisma.StringFieldUpdateOperationsInput | string
   value?: Prisma.StringFieldUpdateOperationsInput | string
@@ -291,7 +291,7 @@ export type verificationUpdateManyMutationInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type verificationUncheckedUpdateManyInput = {
+export type VerificationUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   identifier?: Prisma.StringFieldUpdateOperationsInput | string
   value?: Prisma.StringFieldUpdateOperationsInput | string
@@ -300,7 +300,7 @@ export type verificationUncheckedUpdateManyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type verificationCountOrderByAggregateInput = {
+export type VerificationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   identifier?: Prisma.SortOrder
   value?: Prisma.SortOrder
@@ -309,7 +309,7 @@ export type verificationCountOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type verificationMaxOrderByAggregateInput = {
+export type VerificationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   identifier?: Prisma.SortOrder
   value?: Prisma.SortOrder
@@ -318,7 +318,7 @@ export type verificationMaxOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type verificationMinOrderByAggregateInput = {
+export type VerificationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   identifier?: Prisma.SortOrder
   value?: Prisma.SortOrder
@@ -329,7 +329,7 @@ export type verificationMinOrderByAggregateInput = {
 
 
 
-export type verificationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type VerificationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   identifier?: boolean
   value?: boolean
@@ -338,7 +338,7 @@ export type verificationSelect<ExtArgs extends runtime.Types.Extensions.Internal
   updatedAt?: boolean
 }, ExtArgs["result"]["verification"]>
 
-export type verificationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type VerificationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   identifier?: boolean
   value?: boolean
@@ -347,7 +347,7 @@ export type verificationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
   updatedAt?: boolean
 }, ExtArgs["result"]["verification"]>
 
-export type verificationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type VerificationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   identifier?: boolean
   value?: boolean
@@ -356,7 +356,7 @@ export type verificationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
   updatedAt?: boolean
 }, ExtArgs["result"]["verification"]>
 
-export type verificationSelectScalar = {
+export type VerificationSelectScalar = {
   id?: boolean
   identifier?: boolean
   value?: boolean
@@ -365,10 +365,10 @@ export type verificationSelectScalar = {
   updatedAt?: boolean
 }
 
-export type verificationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "identifier" | "value" | "expiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["verification"]>
+export type VerificationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "identifier" | "value" | "expiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["verification"]>
 
-export type $verificationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "verification"
+export type $VerificationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "Verification"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -381,18 +381,18 @@ export type $verificationPayload<ExtArgs extends runtime.Types.Extensions.Intern
   composites: {}
 }
 
-export type verificationGetPayload<S extends boolean | null | undefined | verificationDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$verificationPayload, S>
+export type VerificationGetPayload<S extends boolean | null | undefined | VerificationDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$VerificationPayload, S>
 
-export type verificationCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<verificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type VerificationCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<VerificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: VerificationCountAggregateInputType | true
   }
 
-export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['verification'], meta: { name: 'verification' } }
+export interface VerificationDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Verification'], meta: { name: 'Verification' } }
   /**
    * Find zero or one Verification that matches the filter.
-   * @param {verificationFindUniqueArgs} args - Arguments to find a Verification
+   * @param {VerificationFindUniqueArgs} args - Arguments to find a Verification
    * @example
    * // Get one Verification
    * const verification = await prisma.verification.findUnique({
@@ -401,12 +401,12 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    *   }
    * })
    */
-  findUnique<T extends verificationFindUniqueArgs>(args: Prisma.SelectSubset<T, verificationFindUniqueArgs<ExtArgs>>): Prisma.Prisma__verificationClient<runtime.Types.Result.GetResult<Prisma.$verificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends VerificationFindUniqueArgs>(args: Prisma.SelectSubset<T, VerificationFindUniqueArgs<ExtArgs>>): Prisma.Prisma__VerificationClient<runtime.Types.Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Verification that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {verificationFindUniqueOrThrowArgs} args - Arguments to find a Verification
+   * @param {VerificationFindUniqueOrThrowArgs} args - Arguments to find a Verification
    * @example
    * // Get one Verification
    * const verification = await prisma.verification.findUniqueOrThrow({
@@ -415,13 +415,13 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    *   }
    * })
    */
-  findUniqueOrThrow<T extends verificationFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, verificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__verificationClient<runtime.Types.Result.GetResult<Prisma.$verificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends VerificationFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, VerificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__VerificationClient<runtime.Types.Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Verification that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {verificationFindFirstArgs} args - Arguments to find a Verification
+   * @param {VerificationFindFirstArgs} args - Arguments to find a Verification
    * @example
    * // Get one Verification
    * const verification = await prisma.verification.findFirst({
@@ -430,14 +430,14 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    *   }
    * })
    */
-  findFirst<T extends verificationFindFirstArgs>(args?: Prisma.SelectSubset<T, verificationFindFirstArgs<ExtArgs>>): Prisma.Prisma__verificationClient<runtime.Types.Result.GetResult<Prisma.$verificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends VerificationFindFirstArgs>(args?: Prisma.SelectSubset<T, VerificationFindFirstArgs<ExtArgs>>): Prisma.Prisma__VerificationClient<runtime.Types.Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Verification that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {verificationFindFirstOrThrowArgs} args - Arguments to find a Verification
+   * @param {VerificationFindFirstOrThrowArgs} args - Arguments to find a Verification
    * @example
    * // Get one Verification
    * const verification = await prisma.verification.findFirstOrThrow({
@@ -446,13 +446,13 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    *   }
    * })
    */
-  findFirstOrThrow<T extends verificationFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, verificationFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__verificationClient<runtime.Types.Result.GetResult<Prisma.$verificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends VerificationFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, VerificationFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__VerificationClient<runtime.Types.Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Verifications that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {verificationFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {VerificationFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Verifications
    * const verifications = await prisma.verification.findMany()
@@ -464,11 +464,11 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    * const verificationWithIdOnly = await prisma.verification.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends verificationFindManyArgs>(args?: Prisma.SelectSubset<T, verificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$verificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends VerificationFindManyArgs>(args?: Prisma.SelectSubset<T, VerificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Verification.
-   * @param {verificationCreateArgs} args - Arguments to create a Verification.
+   * @param {VerificationCreateArgs} args - Arguments to create a Verification.
    * @example
    * // Create one Verification
    * const Verification = await prisma.verification.create({
@@ -478,11 +478,11 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    * })
    * 
    */
-  create<T extends verificationCreateArgs>(args: Prisma.SelectSubset<T, verificationCreateArgs<ExtArgs>>): Prisma.Prisma__verificationClient<runtime.Types.Result.GetResult<Prisma.$verificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends VerificationCreateArgs>(args: Prisma.SelectSubset<T, VerificationCreateArgs<ExtArgs>>): Prisma.Prisma__VerificationClient<runtime.Types.Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Verifications.
-   * @param {verificationCreateManyArgs} args - Arguments to create many Verifications.
+   * @param {VerificationCreateManyArgs} args - Arguments to create many Verifications.
    * @example
    * // Create many Verifications
    * const verification = await prisma.verification.createMany({
@@ -492,11 +492,11 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    * })
    *     
    */
-  createMany<T extends verificationCreateManyArgs>(args?: Prisma.SelectSubset<T, verificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends VerificationCreateManyArgs>(args?: Prisma.SelectSubset<T, VerificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create many Verifications and returns the data saved in the database.
-   * @param {verificationCreateManyAndReturnArgs} args - Arguments to create many Verifications.
+   * @param {VerificationCreateManyAndReturnArgs} args - Arguments to create many Verifications.
    * @example
    * // Create many Verifications
    * const verification = await prisma.verification.createManyAndReturn({
@@ -516,11 +516,11 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  createManyAndReturn<T extends verificationCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, verificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$verificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+  createManyAndReturn<T extends VerificationCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, VerificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Delete a Verification.
-   * @param {verificationDeleteArgs} args - Arguments to delete one Verification.
+   * @param {VerificationDeleteArgs} args - Arguments to delete one Verification.
    * @example
    * // Delete one Verification
    * const Verification = await prisma.verification.delete({
@@ -530,11 +530,11 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    * })
    * 
    */
-  delete<T extends verificationDeleteArgs>(args: Prisma.SelectSubset<T, verificationDeleteArgs<ExtArgs>>): Prisma.Prisma__verificationClient<runtime.Types.Result.GetResult<Prisma.$verificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends VerificationDeleteArgs>(args: Prisma.SelectSubset<T, VerificationDeleteArgs<ExtArgs>>): Prisma.Prisma__VerificationClient<runtime.Types.Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Verification.
-   * @param {verificationUpdateArgs} args - Arguments to update one Verification.
+   * @param {VerificationUpdateArgs} args - Arguments to update one Verification.
    * @example
    * // Update one Verification
    * const verification = await prisma.verification.update({
@@ -547,11 +547,11 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    * })
    * 
    */
-  update<T extends verificationUpdateArgs>(args: Prisma.SelectSubset<T, verificationUpdateArgs<ExtArgs>>): Prisma.Prisma__verificationClient<runtime.Types.Result.GetResult<Prisma.$verificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends VerificationUpdateArgs>(args: Prisma.SelectSubset<T, VerificationUpdateArgs<ExtArgs>>): Prisma.Prisma__VerificationClient<runtime.Types.Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Verifications.
-   * @param {verificationDeleteManyArgs} args - Arguments to filter Verifications to delete.
+   * @param {VerificationDeleteManyArgs} args - Arguments to filter Verifications to delete.
    * @example
    * // Delete a few Verifications
    * const { count } = await prisma.verification.deleteMany({
@@ -561,13 +561,13 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    * })
    * 
    */
-  deleteMany<T extends verificationDeleteManyArgs>(args?: Prisma.SelectSubset<T, verificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends VerificationDeleteManyArgs>(args?: Prisma.SelectSubset<T, VerificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Verifications.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {verificationUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {VerificationUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Verifications
    * const verification = await prisma.verification.updateMany({
@@ -580,11 +580,11 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    * })
    * 
    */
-  updateMany<T extends verificationUpdateManyArgs>(args: Prisma.SelectSubset<T, verificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends VerificationUpdateManyArgs>(args: Prisma.SelectSubset<T, VerificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Verifications and returns the data updated in the database.
-   * @param {verificationUpdateManyAndReturnArgs} args - Arguments to update many Verifications.
+   * @param {VerificationUpdateManyAndReturnArgs} args - Arguments to update many Verifications.
    * @example
    * // Update many Verifications
    * const verification = await prisma.verification.updateManyAndReturn({
@@ -610,11 +610,11 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  updateManyAndReturn<T extends verificationUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, verificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$verificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+  updateManyAndReturn<T extends VerificationUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, VerificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Create or update one Verification.
-   * @param {verificationUpsertArgs} args - Arguments to update or create a Verification.
+   * @param {VerificationUpsertArgs} args - Arguments to update or create a Verification.
    * @example
    * // Update or create a Verification
    * const verification = await prisma.verification.upsert({
@@ -629,14 +629,14 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    *   }
    * })
    */
-  upsert<T extends verificationUpsertArgs>(args: Prisma.SelectSubset<T, verificationUpsertArgs<ExtArgs>>): Prisma.Prisma__verificationClient<runtime.Types.Result.GetResult<Prisma.$verificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends VerificationUpsertArgs>(args: Prisma.SelectSubset<T, VerificationUpsertArgs<ExtArgs>>): Prisma.Prisma__VerificationClient<runtime.Types.Result.GetResult<Prisma.$VerificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Verifications.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {verificationCountArgs} args - Arguments to filter Verifications to count.
+   * @param {VerificationCountArgs} args - Arguments to filter Verifications to count.
    * @example
    * // Count the number of Verifications
    * const count = await prisma.verification.count({
@@ -645,8 +645,8 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    *   }
    * })
   **/
-  count<T extends verificationCountArgs>(
-    args?: Prisma.Subset<T, verificationCountArgs>,
+  count<T extends VerificationCountArgs>(
+    args?: Prisma.Subset<T, VerificationCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -685,7 +685,7 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    * Group by Verification.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {verificationGroupByArgs} args - Group by arguments.
+   * @param {VerificationGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -700,14 +700,14 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
    * 
   **/
   groupBy<
-    T extends verificationGroupByArgs,
+    T extends VerificationGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: verificationGroupByArgs['orderBy'] }
-      : { orderBy?: verificationGroupByArgs['orderBy'] },
+      ? { orderBy: VerificationGroupByArgs['orderBy'] }
+      : { orderBy?: VerificationGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -756,20 +756,20 @@ export interface verificationDelegate<ExtArgs extends runtime.Types.Extensions.I
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, verificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVerificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, VerificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVerificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the verification model
+ * Fields of the Verification model
  */
-readonly fields: verificationFieldRefs;
+readonly fields: VerificationFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for verification.
+ * The delegate class that acts as a "Promise-like" for Verification.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__verificationClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__VerificationClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -797,381 +797,381 @@ export interface Prisma__verificationClient<T, Null = never, ExtArgs extends run
 
 
 /**
- * Fields of the verification model
+ * Fields of the Verification model
  */
-export interface verificationFieldRefs {
-  readonly id: Prisma.FieldRef<"verification", 'String'>
-  readonly identifier: Prisma.FieldRef<"verification", 'String'>
-  readonly value: Prisma.FieldRef<"verification", 'String'>
-  readonly expiresAt: Prisma.FieldRef<"verification", 'DateTime'>
-  readonly createdAt: Prisma.FieldRef<"verification", 'DateTime'>
-  readonly updatedAt: Prisma.FieldRef<"verification", 'DateTime'>
+export interface VerificationFieldRefs {
+  readonly id: Prisma.FieldRef<"Verification", 'String'>
+  readonly identifier: Prisma.FieldRef<"Verification", 'String'>
+  readonly value: Prisma.FieldRef<"Verification", 'String'>
+  readonly expiresAt: Prisma.FieldRef<"Verification", 'DateTime'>
+  readonly createdAt: Prisma.FieldRef<"Verification", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Verification", 'DateTime'>
 }
     
 
 // Custom InputTypes
 /**
- * verification findUnique
+ * Verification findUnique
  */
-export type verificationFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelect<ExtArgs> | null
+  select?: Prisma.VerificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
   /**
-   * Filter, which verification to fetch.
+   * Filter, which Verification to fetch.
    */
-  where: Prisma.verificationWhereUniqueInput
+  where: Prisma.VerificationWhereUniqueInput
 }
 
 /**
- * verification findUniqueOrThrow
+ * Verification findUniqueOrThrow
  */
-export type verificationFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelect<ExtArgs> | null
+  select?: Prisma.VerificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
   /**
-   * Filter, which verification to fetch.
+   * Filter, which Verification to fetch.
    */
-  where: Prisma.verificationWhereUniqueInput
+  where: Prisma.VerificationWhereUniqueInput
 }
 
 /**
- * verification findFirst
+ * Verification findFirst
  */
-export type verificationFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelect<ExtArgs> | null
+  select?: Prisma.VerificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
   /**
-   * Filter, which verification to fetch.
+   * Filter, which Verification to fetch.
    */
-  where?: Prisma.verificationWhereInput
+  where?: Prisma.VerificationWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of verifications to fetch.
+   * Determine the order of Verifications to fetch.
    */
-  orderBy?: Prisma.verificationOrderByWithRelationInput | Prisma.verificationOrderByWithRelationInput[]
+  orderBy?: Prisma.VerificationOrderByWithRelationInput | Prisma.VerificationOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for verifications.
+   * Sets the position for searching for Verifications.
    */
-  cursor?: Prisma.verificationWhereUniqueInput
+  cursor?: Prisma.VerificationWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` verifications from the position of the cursor.
+   * Take `±n` Verifications from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` verifications.
+   * Skip the first `n` Verifications.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of verifications.
+   * Filter by unique combinations of Verifications.
    */
   distinct?: Prisma.VerificationScalarFieldEnum | Prisma.VerificationScalarFieldEnum[]
 }
 
 /**
- * verification findFirstOrThrow
+ * Verification findFirstOrThrow
  */
-export type verificationFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelect<ExtArgs> | null
+  select?: Prisma.VerificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
   /**
-   * Filter, which verification to fetch.
+   * Filter, which Verification to fetch.
    */
-  where?: Prisma.verificationWhereInput
+  where?: Prisma.VerificationWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of verifications to fetch.
+   * Determine the order of Verifications to fetch.
    */
-  orderBy?: Prisma.verificationOrderByWithRelationInput | Prisma.verificationOrderByWithRelationInput[]
+  orderBy?: Prisma.VerificationOrderByWithRelationInput | Prisma.VerificationOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for verifications.
+   * Sets the position for searching for Verifications.
    */
-  cursor?: Prisma.verificationWhereUniqueInput
+  cursor?: Prisma.VerificationWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` verifications from the position of the cursor.
+   * Take `±n` Verifications from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` verifications.
+   * Skip the first `n` Verifications.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of verifications.
+   * Filter by unique combinations of Verifications.
    */
   distinct?: Prisma.VerificationScalarFieldEnum | Prisma.VerificationScalarFieldEnum[]
 }
 
 /**
- * verification findMany
+ * Verification findMany
  */
-export type verificationFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelect<ExtArgs> | null
+  select?: Prisma.VerificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
   /**
-   * Filter, which verifications to fetch.
+   * Filter, which Verifications to fetch.
    */
-  where?: Prisma.verificationWhereInput
+  where?: Prisma.VerificationWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of verifications to fetch.
+   * Determine the order of Verifications to fetch.
    */
-  orderBy?: Prisma.verificationOrderByWithRelationInput | Prisma.verificationOrderByWithRelationInput[]
+  orderBy?: Prisma.VerificationOrderByWithRelationInput | Prisma.VerificationOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing verifications.
+   * Sets the position for listing Verifications.
    */
-  cursor?: Prisma.verificationWhereUniqueInput
+  cursor?: Prisma.VerificationWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` verifications from the position of the cursor.
+   * Take `±n` Verifications from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` verifications.
+   * Skip the first `n` Verifications.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of verifications.
+   * Filter by unique combinations of Verifications.
    */
   distinct?: Prisma.VerificationScalarFieldEnum | Prisma.VerificationScalarFieldEnum[]
 }
 
 /**
- * verification create
+ * Verification create
  */
-export type verificationCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelect<ExtArgs> | null
+  select?: Prisma.VerificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
   /**
-   * The data needed to create a verification.
+   * The data needed to create a Verification.
    */
-  data: Prisma.XOR<Prisma.verificationCreateInput, Prisma.verificationUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.VerificationCreateInput, Prisma.VerificationUncheckedCreateInput>
 }
 
 /**
- * verification createMany
+ * Verification createMany
  */
-export type verificationCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many verifications.
+   * The data used to create many Verifications.
    */
-  data: Prisma.verificationCreateManyInput | Prisma.verificationCreateManyInput[]
+  data: Prisma.VerificationCreateManyInput | Prisma.VerificationCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * verification createManyAndReturn
+ * Verification createManyAndReturn
  */
-export type verificationCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelectCreateManyAndReturn<ExtArgs> | null
+  select?: Prisma.VerificationSelectCreateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
   /**
-   * The data used to create many verifications.
+   * The data used to create many Verifications.
    */
-  data: Prisma.verificationCreateManyInput | Prisma.verificationCreateManyInput[]
+  data: Prisma.VerificationCreateManyInput | Prisma.VerificationCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * verification update
+ * Verification update
  */
-export type verificationUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelect<ExtArgs> | null
+  select?: Prisma.VerificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
   /**
-   * The data needed to update a verification.
+   * The data needed to update a Verification.
    */
-  data: Prisma.XOR<Prisma.verificationUpdateInput, Prisma.verificationUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.VerificationUpdateInput, Prisma.VerificationUncheckedUpdateInput>
   /**
-   * Choose, which verification to update.
+   * Choose, which Verification to update.
    */
-  where: Prisma.verificationWhereUniqueInput
+  where: Prisma.VerificationWhereUniqueInput
 }
 
 /**
- * verification updateMany
+ * Verification updateMany
  */
-export type verificationUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update verifications.
+   * The data used to update Verifications.
    */
-  data: Prisma.XOR<Prisma.verificationUpdateManyMutationInput, Prisma.verificationUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.VerificationUpdateManyMutationInput, Prisma.VerificationUncheckedUpdateManyInput>
   /**
-   * Filter which verifications to update
+   * Filter which Verifications to update
    */
-  where?: Prisma.verificationWhereInput
+  where?: Prisma.VerificationWhereInput
   /**
-   * Limit how many verifications to update.
+   * Limit how many Verifications to update.
    */
   limit?: number
 }
 
 /**
- * verification updateManyAndReturn
+ * Verification updateManyAndReturn
  */
-export type verificationUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelectUpdateManyAndReturn<ExtArgs> | null
+  select?: Prisma.VerificationSelectUpdateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
   /**
-   * The data used to update verifications.
+   * The data used to update Verifications.
    */
-  data: Prisma.XOR<Prisma.verificationUpdateManyMutationInput, Prisma.verificationUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.VerificationUpdateManyMutationInput, Prisma.VerificationUncheckedUpdateManyInput>
   /**
-   * Filter which verifications to update
+   * Filter which Verifications to update
    */
-  where?: Prisma.verificationWhereInput
+  where?: Prisma.VerificationWhereInput
   /**
-   * Limit how many verifications to update.
+   * Limit how many Verifications to update.
    */
   limit?: number
 }
 
 /**
- * verification upsert
+ * Verification upsert
  */
-export type verificationUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelect<ExtArgs> | null
+  select?: Prisma.VerificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
   /**
-   * The filter to search for the verification to update in case it exists.
+   * The filter to search for the Verification to update in case it exists.
    */
-  where: Prisma.verificationWhereUniqueInput
+  where: Prisma.VerificationWhereUniqueInput
   /**
-   * In case the verification found by the `where` argument doesn't exist, create a new verification with this data.
+   * In case the Verification found by the `where` argument doesn't exist, create a new Verification with this data.
    */
-  create: Prisma.XOR<Prisma.verificationCreateInput, Prisma.verificationUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.VerificationCreateInput, Prisma.VerificationUncheckedCreateInput>
   /**
-   * In case the verification was found with the provided `where` argument, update it with this data.
+   * In case the Verification was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.verificationUpdateInput, Prisma.verificationUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.VerificationUpdateInput, Prisma.VerificationUncheckedUpdateInput>
 }
 
 /**
- * verification delete
+ * Verification delete
  */
-export type verificationDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelect<ExtArgs> | null
+  select?: Prisma.VerificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
   /**
-   * Filter which verification to delete.
+   * Filter which Verification to delete.
    */
-  where: Prisma.verificationWhereUniqueInput
+  where: Prisma.VerificationWhereUniqueInput
 }
 
 /**
- * verification deleteMany
+ * Verification deleteMany
  */
-export type verificationDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which verifications to delete
+   * Filter which Verifications to delete
    */
-  where?: Prisma.verificationWhereInput
+  where?: Prisma.VerificationWhereInput
   /**
-   * Limit how many verifications to delete.
+   * Limit how many Verifications to delete.
    */
   limit?: number
 }
 
 /**
- * verification without action
+ * Verification without action
  */
-export type verificationDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type VerificationDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the verification
+   * Select specific fields to fetch from the Verification
    */
-  select?: Prisma.verificationSelect<ExtArgs> | null
+  select?: Prisma.VerificationSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the verification
+   * Omit specific fields from the Verification
    */
-  omit?: Prisma.verificationOmit<ExtArgs> | null
+  omit?: Prisma.VerificationOmit<ExtArgs> | null
 }

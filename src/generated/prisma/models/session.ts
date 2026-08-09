@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `session` model and its related types.
+ * This file exports the `Session` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
 /**
- * Model session
+ * Model Session
  * 
  */
-export type sessionModel = runtime.Types.Result.DefaultSelection<Prisma.$sessionPayload>
+export type SessionModel = runtime.Types.Result.DefaultSelection<Prisma.$SessionPayload>
 
 export type AggregateSession = {
   _count: SessionCountAggregateOutputType | null
@@ -95,37 +95,37 @@ export type SessionCountAggregateInputType = {
 
 export type SessionAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which session to aggregate.
+   * Filter which Session to aggregate.
    */
-  where?: Prisma.sessionWhereInput
+  where?: Prisma.SessionWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of sessions to fetch.
+   * Determine the order of Sessions to fetch.
    */
-  orderBy?: Prisma.sessionOrderByWithRelationInput | Prisma.sessionOrderByWithRelationInput[]
+  orderBy?: Prisma.SessionOrderByWithRelationInput | Prisma.SessionOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.sessionWhereUniqueInput
+  cursor?: Prisma.SessionWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` sessions from the position of the cursor.
+   * Take `±n` Sessions from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` sessions.
+   * Skip the first `n` Sessions.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned sessions
+   * Count returned Sessions
   **/
   _count?: true | SessionCountAggregateInputType
   /**
@@ -153,11 +153,11 @@ export type GetSessionAggregateType<T extends SessionAggregateArgs> = {
 
 
 
-export type sessionGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.sessionWhereInput
-  orderBy?: Prisma.sessionOrderByWithAggregationInput | Prisma.sessionOrderByWithAggregationInput[]
+export type SessionGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SessionWhereInput
+  orderBy?: Prisma.SessionOrderByWithAggregationInput | Prisma.SessionOrderByWithAggregationInput[]
   by: Prisma.SessionScalarFieldEnum[] | Prisma.SessionScalarFieldEnum
-  having?: Prisma.sessionScalarWhereWithAggregatesInput
+  having?: Prisma.SessionScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: SessionCountAggregateInputType | true
@@ -179,7 +179,7 @@ export type SessionGroupByOutputType = {
   _max: SessionMaxAggregateOutputType | null
 }
 
-export type GetSessionGroupByPayload<T extends sessionGroupByArgs> = Prisma.PrismaPromise<
+export type GetSessionGroupByPayload<T extends SessionGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<SessionGroupByOutputType, T['by']> &
       {
@@ -194,22 +194,22 @@ export type GetSessionGroupByPayload<T extends sessionGroupByArgs> = Prisma.Pris
 
 
 
-export type sessionWhereInput = {
-  AND?: Prisma.sessionWhereInput | Prisma.sessionWhereInput[]
-  OR?: Prisma.sessionWhereInput[]
-  NOT?: Prisma.sessionWhereInput | Prisma.sessionWhereInput[]
-  id?: Prisma.StringFilter<"session"> | string
-  expiresAt?: Prisma.DateTimeFilter<"session"> | Date | string
-  token?: Prisma.StringFilter<"session"> | string
-  createdAt?: Prisma.DateTimeFilter<"session"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"session"> | Date | string
-  ipAddress?: Prisma.StringNullableFilter<"session"> | string | null
-  userAgent?: Prisma.StringNullableFilter<"session"> | string | null
-  userId?: Prisma.StringFilter<"session"> | string
+export type SessionWhereInput = {
+  AND?: Prisma.SessionWhereInput | Prisma.SessionWhereInput[]
+  OR?: Prisma.SessionWhereInput[]
+  NOT?: Prisma.SessionWhereInput | Prisma.SessionWhereInput[]
+  id?: Prisma.StringFilter<"Session"> | string
+  expiresAt?: Prisma.DateTimeFilter<"Session"> | Date | string
+  token?: Prisma.StringFilter<"Session"> | string
+  createdAt?: Prisma.DateTimeFilter<"Session"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Session"> | Date | string
+  ipAddress?: Prisma.StringNullableFilter<"Session"> | string | null
+  userAgent?: Prisma.StringNullableFilter<"Session"> | string | null
+  userId?: Prisma.StringFilter<"Session"> | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
-export type sessionOrderByWithRelationInput = {
+export type SessionOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   token?: Prisma.SortOrder
@@ -221,22 +221,22 @@ export type sessionOrderByWithRelationInput = {
   user?: Prisma.UserOrderByWithRelationInput
 }
 
-export type sessionWhereUniqueInput = Prisma.AtLeast<{
+export type SessionWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   token?: string
-  AND?: Prisma.sessionWhereInput | Prisma.sessionWhereInput[]
-  OR?: Prisma.sessionWhereInput[]
-  NOT?: Prisma.sessionWhereInput | Prisma.sessionWhereInput[]
-  expiresAt?: Prisma.DateTimeFilter<"session"> | Date | string
-  createdAt?: Prisma.DateTimeFilter<"session"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"session"> | Date | string
-  ipAddress?: Prisma.StringNullableFilter<"session"> | string | null
-  userAgent?: Prisma.StringNullableFilter<"session"> | string | null
-  userId?: Prisma.StringFilter<"session"> | string
+  AND?: Prisma.SessionWhereInput | Prisma.SessionWhereInput[]
+  OR?: Prisma.SessionWhereInput[]
+  NOT?: Prisma.SessionWhereInput | Prisma.SessionWhereInput[]
+  expiresAt?: Prisma.DateTimeFilter<"Session"> | Date | string
+  createdAt?: Prisma.DateTimeFilter<"Session"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Session"> | Date | string
+  ipAddress?: Prisma.StringNullableFilter<"Session"> | string | null
+  userAgent?: Prisma.StringNullableFilter<"Session"> | string | null
+  userId?: Prisma.StringFilter<"Session"> | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id" | "token">
 
-export type sessionOrderByWithAggregationInput = {
+export type SessionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   token?: Prisma.SortOrder
@@ -245,48 +245,48 @@ export type sessionOrderByWithAggregationInput = {
   ipAddress?: Prisma.SortOrderInput | Prisma.SortOrder
   userAgent?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
-  _count?: Prisma.sessionCountOrderByAggregateInput
-  _max?: Prisma.sessionMaxOrderByAggregateInput
-  _min?: Prisma.sessionMinOrderByAggregateInput
+  _count?: Prisma.SessionCountOrderByAggregateInput
+  _max?: Prisma.SessionMaxOrderByAggregateInput
+  _min?: Prisma.SessionMinOrderByAggregateInput
 }
 
-export type sessionScalarWhereWithAggregatesInput = {
-  AND?: Prisma.sessionScalarWhereWithAggregatesInput | Prisma.sessionScalarWhereWithAggregatesInput[]
-  OR?: Prisma.sessionScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.sessionScalarWhereWithAggregatesInput | Prisma.sessionScalarWhereWithAggregatesInput[]
-  id?: Prisma.StringWithAggregatesFilter<"session"> | string
-  expiresAt?: Prisma.DateTimeWithAggregatesFilter<"session"> | Date | string
-  token?: Prisma.StringWithAggregatesFilter<"session"> | string
-  createdAt?: Prisma.DateTimeWithAggregatesFilter<"session"> | Date | string
-  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"session"> | Date | string
-  ipAddress?: Prisma.StringNullableWithAggregatesFilter<"session"> | string | null
-  userAgent?: Prisma.StringNullableWithAggregatesFilter<"session"> | string | null
-  userId?: Prisma.StringWithAggregatesFilter<"session"> | string
+export type SessionScalarWhereWithAggregatesInput = {
+  AND?: Prisma.SessionScalarWhereWithAggregatesInput | Prisma.SessionScalarWhereWithAggregatesInput[]
+  OR?: Prisma.SessionScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.SessionScalarWhereWithAggregatesInput | Prisma.SessionScalarWhereWithAggregatesInput[]
+  id?: Prisma.StringWithAggregatesFilter<"Session"> | string
+  expiresAt?: Prisma.DateTimeWithAggregatesFilter<"Session"> | Date | string
+  token?: Prisma.StringWithAggregatesFilter<"Session"> | string
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Session"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Session"> | Date | string
+  ipAddress?: Prisma.StringNullableWithAggregatesFilter<"Session"> | string | null
+  userAgent?: Prisma.StringNullableWithAggregatesFilter<"Session"> | string | null
+  userId?: Prisma.StringWithAggregatesFilter<"Session"> | string
 }
 
-export type sessionCreateInput = {
+export type SessionCreateInput = {
   id: string
   expiresAt: Date | string
   token: string
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
   ipAddress?: string | null
   userAgent?: string | null
-  user: Prisma.UserCreateNestedOneWithoutSessionInput
+  user: Prisma.UserCreateNestedOneWithoutSessionsInput
 }
 
-export type sessionUncheckedCreateInput = {
+export type SessionUncheckedCreateInput = {
   id: string
   expiresAt: Date | string
   token: string
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
   ipAddress?: string | null
   userAgent?: string | null
   userId: string
 }
 
-export type sessionUpdateInput = {
+export type SessionUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   token?: Prisma.StringFieldUpdateOperationsInput | string
@@ -294,10 +294,10 @@ export type sessionUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ipAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userAgent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  user?: Prisma.UserUpdateOneRequiredWithoutSessionNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutSessionsNestedInput
 }
 
-export type sessionUncheckedUpdateInput = {
+export type SessionUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   token?: Prisma.StringFieldUpdateOperationsInput | string
@@ -308,18 +308,18 @@ export type sessionUncheckedUpdateInput = {
   userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type sessionCreateManyInput = {
+export type SessionCreateManyInput = {
   id: string
   expiresAt: Date | string
   token: string
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
   ipAddress?: string | null
   userAgent?: string | null
   userId: string
 }
 
-export type sessionUpdateManyMutationInput = {
+export type SessionUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   token?: Prisma.StringFieldUpdateOperationsInput | string
@@ -329,7 +329,7 @@ export type sessionUpdateManyMutationInput = {
   userAgent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
-export type sessionUncheckedUpdateManyInput = {
+export type SessionUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   token?: Prisma.StringFieldUpdateOperationsInput | string
@@ -341,16 +341,16 @@ export type sessionUncheckedUpdateManyInput = {
 }
 
 export type SessionListRelationFilter = {
-  every?: Prisma.sessionWhereInput
-  some?: Prisma.sessionWhereInput
-  none?: Prisma.sessionWhereInput
+  every?: Prisma.SessionWhereInput
+  some?: Prisma.SessionWhereInput
+  none?: Prisma.SessionWhereInput
 }
 
-export type sessionOrderByRelationAggregateInput = {
+export type SessionOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type sessionCountOrderByAggregateInput = {
+export type SessionCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   token?: Prisma.SortOrder
@@ -361,7 +361,7 @@ export type sessionCountOrderByAggregateInput = {
   userId?: Prisma.SortOrder
 }
 
-export type sessionMaxOrderByAggregateInput = {
+export type SessionMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   token?: Prisma.SortOrder
@@ -372,7 +372,7 @@ export type sessionMaxOrderByAggregateInput = {
   userId?: Prisma.SortOrder
 }
 
-export type sessionMinOrderByAggregateInput = {
+export type SessionMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   token?: Prisma.SortOrder
@@ -383,119 +383,119 @@ export type sessionMinOrderByAggregateInput = {
   userId?: Prisma.SortOrder
 }
 
-export type sessionCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.sessionCreateWithoutUserInput, Prisma.sessionUncheckedCreateWithoutUserInput> | Prisma.sessionCreateWithoutUserInput[] | Prisma.sessionUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.sessionCreateOrConnectWithoutUserInput | Prisma.sessionCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.sessionCreateManyUserInputEnvelope
-  connect?: Prisma.sessionWhereUniqueInput | Prisma.sessionWhereUniqueInput[]
+export type SessionCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.SessionCreateWithoutUserInput, Prisma.SessionUncheckedCreateWithoutUserInput> | Prisma.SessionCreateWithoutUserInput[] | Prisma.SessionUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.SessionCreateOrConnectWithoutUserInput | Prisma.SessionCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.SessionCreateManyUserInputEnvelope
+  connect?: Prisma.SessionWhereUniqueInput | Prisma.SessionWhereUniqueInput[]
 }
 
-export type sessionUncheckedCreateNestedManyWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.sessionCreateWithoutUserInput, Prisma.sessionUncheckedCreateWithoutUserInput> | Prisma.sessionCreateWithoutUserInput[] | Prisma.sessionUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.sessionCreateOrConnectWithoutUserInput | Prisma.sessionCreateOrConnectWithoutUserInput[]
-  createMany?: Prisma.sessionCreateManyUserInputEnvelope
-  connect?: Prisma.sessionWhereUniqueInput | Prisma.sessionWhereUniqueInput[]
+export type SessionUncheckedCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.SessionCreateWithoutUserInput, Prisma.SessionUncheckedCreateWithoutUserInput> | Prisma.SessionCreateWithoutUserInput[] | Prisma.SessionUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.SessionCreateOrConnectWithoutUserInput | Prisma.SessionCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.SessionCreateManyUserInputEnvelope
+  connect?: Prisma.SessionWhereUniqueInput | Prisma.SessionWhereUniqueInput[]
 }
 
-export type sessionUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.sessionCreateWithoutUserInput, Prisma.sessionUncheckedCreateWithoutUserInput> | Prisma.sessionCreateWithoutUserInput[] | Prisma.sessionUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.sessionCreateOrConnectWithoutUserInput | Prisma.sessionCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.sessionUpsertWithWhereUniqueWithoutUserInput | Prisma.sessionUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.sessionCreateManyUserInputEnvelope
-  set?: Prisma.sessionWhereUniqueInput | Prisma.sessionWhereUniqueInput[]
-  disconnect?: Prisma.sessionWhereUniqueInput | Prisma.sessionWhereUniqueInput[]
-  delete?: Prisma.sessionWhereUniqueInput | Prisma.sessionWhereUniqueInput[]
-  connect?: Prisma.sessionWhereUniqueInput | Prisma.sessionWhereUniqueInput[]
-  update?: Prisma.sessionUpdateWithWhereUniqueWithoutUserInput | Prisma.sessionUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.sessionUpdateManyWithWhereWithoutUserInput | Prisma.sessionUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.sessionScalarWhereInput | Prisma.sessionScalarWhereInput[]
+export type SessionUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.SessionCreateWithoutUserInput, Prisma.SessionUncheckedCreateWithoutUserInput> | Prisma.SessionCreateWithoutUserInput[] | Prisma.SessionUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.SessionCreateOrConnectWithoutUserInput | Prisma.SessionCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.SessionUpsertWithWhereUniqueWithoutUserInput | Prisma.SessionUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.SessionCreateManyUserInputEnvelope
+  set?: Prisma.SessionWhereUniqueInput | Prisma.SessionWhereUniqueInput[]
+  disconnect?: Prisma.SessionWhereUniqueInput | Prisma.SessionWhereUniqueInput[]
+  delete?: Prisma.SessionWhereUniqueInput | Prisma.SessionWhereUniqueInput[]
+  connect?: Prisma.SessionWhereUniqueInput | Prisma.SessionWhereUniqueInput[]
+  update?: Prisma.SessionUpdateWithWhereUniqueWithoutUserInput | Prisma.SessionUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.SessionUpdateManyWithWhereWithoutUserInput | Prisma.SessionUpdateManyWithWhereWithoutUserInput[]
+  deleteMany?: Prisma.SessionScalarWhereInput | Prisma.SessionScalarWhereInput[]
 }
 
-export type sessionUncheckedUpdateManyWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.sessionCreateWithoutUserInput, Prisma.sessionUncheckedCreateWithoutUserInput> | Prisma.sessionCreateWithoutUserInput[] | Prisma.sessionUncheckedCreateWithoutUserInput[]
-  connectOrCreate?: Prisma.sessionCreateOrConnectWithoutUserInput | Prisma.sessionCreateOrConnectWithoutUserInput[]
-  upsert?: Prisma.sessionUpsertWithWhereUniqueWithoutUserInput | Prisma.sessionUpsertWithWhereUniqueWithoutUserInput[]
-  createMany?: Prisma.sessionCreateManyUserInputEnvelope
-  set?: Prisma.sessionWhereUniqueInput | Prisma.sessionWhereUniqueInput[]
-  disconnect?: Prisma.sessionWhereUniqueInput | Prisma.sessionWhereUniqueInput[]
-  delete?: Prisma.sessionWhereUniqueInput | Prisma.sessionWhereUniqueInput[]
-  connect?: Prisma.sessionWhereUniqueInput | Prisma.sessionWhereUniqueInput[]
-  update?: Prisma.sessionUpdateWithWhereUniqueWithoutUserInput | Prisma.sessionUpdateWithWhereUniqueWithoutUserInput[]
-  updateMany?: Prisma.sessionUpdateManyWithWhereWithoutUserInput | Prisma.sessionUpdateManyWithWhereWithoutUserInput[]
-  deleteMany?: Prisma.sessionScalarWhereInput | Prisma.sessionScalarWhereInput[]
+export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.SessionCreateWithoutUserInput, Prisma.SessionUncheckedCreateWithoutUserInput> | Prisma.SessionCreateWithoutUserInput[] | Prisma.SessionUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.SessionCreateOrConnectWithoutUserInput | Prisma.SessionCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.SessionUpsertWithWhereUniqueWithoutUserInput | Prisma.SessionUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.SessionCreateManyUserInputEnvelope
+  set?: Prisma.SessionWhereUniqueInput | Prisma.SessionWhereUniqueInput[]
+  disconnect?: Prisma.SessionWhereUniqueInput | Prisma.SessionWhereUniqueInput[]
+  delete?: Prisma.SessionWhereUniqueInput | Prisma.SessionWhereUniqueInput[]
+  connect?: Prisma.SessionWhereUniqueInput | Prisma.SessionWhereUniqueInput[]
+  update?: Prisma.SessionUpdateWithWhereUniqueWithoutUserInput | Prisma.SessionUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.SessionUpdateManyWithWhereWithoutUserInput | Prisma.SessionUpdateManyWithWhereWithoutUserInput[]
+  deleteMany?: Prisma.SessionScalarWhereInput | Prisma.SessionScalarWhereInput[]
 }
 
-export type sessionCreateWithoutUserInput = {
+export type SessionCreateWithoutUserInput = {
   id: string
   expiresAt: Date | string
   token: string
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
   ipAddress?: string | null
   userAgent?: string | null
 }
 
-export type sessionUncheckedCreateWithoutUserInput = {
+export type SessionUncheckedCreateWithoutUserInput = {
   id: string
   expiresAt: Date | string
   token: string
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
   ipAddress?: string | null
   userAgent?: string | null
 }
 
-export type sessionCreateOrConnectWithoutUserInput = {
-  where: Prisma.sessionWhereUniqueInput
-  create: Prisma.XOR<Prisma.sessionCreateWithoutUserInput, Prisma.sessionUncheckedCreateWithoutUserInput>
+export type SessionCreateOrConnectWithoutUserInput = {
+  where: Prisma.SessionWhereUniqueInput
+  create: Prisma.XOR<Prisma.SessionCreateWithoutUserInput, Prisma.SessionUncheckedCreateWithoutUserInput>
 }
 
-export type sessionCreateManyUserInputEnvelope = {
-  data: Prisma.sessionCreateManyUserInput | Prisma.sessionCreateManyUserInput[]
+export type SessionCreateManyUserInputEnvelope = {
+  data: Prisma.SessionCreateManyUserInput | Prisma.SessionCreateManyUserInput[]
   skipDuplicates?: boolean
 }
 
-export type sessionUpsertWithWhereUniqueWithoutUserInput = {
-  where: Prisma.sessionWhereUniqueInput
-  update: Prisma.XOR<Prisma.sessionUpdateWithoutUserInput, Prisma.sessionUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.sessionCreateWithoutUserInput, Prisma.sessionUncheckedCreateWithoutUserInput>
+export type SessionUpsertWithWhereUniqueWithoutUserInput = {
+  where: Prisma.SessionWhereUniqueInput
+  update: Prisma.XOR<Prisma.SessionUpdateWithoutUserInput, Prisma.SessionUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.SessionCreateWithoutUserInput, Prisma.SessionUncheckedCreateWithoutUserInput>
 }
 
-export type sessionUpdateWithWhereUniqueWithoutUserInput = {
-  where: Prisma.sessionWhereUniqueInput
-  data: Prisma.XOR<Prisma.sessionUpdateWithoutUserInput, Prisma.sessionUncheckedUpdateWithoutUserInput>
+export type SessionUpdateWithWhereUniqueWithoutUserInput = {
+  where: Prisma.SessionWhereUniqueInput
+  data: Prisma.XOR<Prisma.SessionUpdateWithoutUserInput, Prisma.SessionUncheckedUpdateWithoutUserInput>
 }
 
-export type sessionUpdateManyWithWhereWithoutUserInput = {
-  where: Prisma.sessionScalarWhereInput
-  data: Prisma.XOR<Prisma.sessionUpdateManyMutationInput, Prisma.sessionUncheckedUpdateManyWithoutUserInput>
+export type SessionUpdateManyWithWhereWithoutUserInput = {
+  where: Prisma.SessionScalarWhereInput
+  data: Prisma.XOR<Prisma.SessionUpdateManyMutationInput, Prisma.SessionUncheckedUpdateManyWithoutUserInput>
 }
 
-export type sessionScalarWhereInput = {
-  AND?: Prisma.sessionScalarWhereInput | Prisma.sessionScalarWhereInput[]
-  OR?: Prisma.sessionScalarWhereInput[]
-  NOT?: Prisma.sessionScalarWhereInput | Prisma.sessionScalarWhereInput[]
-  id?: Prisma.StringFilter<"session"> | string
-  expiresAt?: Prisma.DateTimeFilter<"session"> | Date | string
-  token?: Prisma.StringFilter<"session"> | string
-  createdAt?: Prisma.DateTimeFilter<"session"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"session"> | Date | string
-  ipAddress?: Prisma.StringNullableFilter<"session"> | string | null
-  userAgent?: Prisma.StringNullableFilter<"session"> | string | null
-  userId?: Prisma.StringFilter<"session"> | string
+export type SessionScalarWhereInput = {
+  AND?: Prisma.SessionScalarWhereInput | Prisma.SessionScalarWhereInput[]
+  OR?: Prisma.SessionScalarWhereInput[]
+  NOT?: Prisma.SessionScalarWhereInput | Prisma.SessionScalarWhereInput[]
+  id?: Prisma.StringFilter<"Session"> | string
+  expiresAt?: Prisma.DateTimeFilter<"Session"> | Date | string
+  token?: Prisma.StringFilter<"Session"> | string
+  createdAt?: Prisma.DateTimeFilter<"Session"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Session"> | Date | string
+  ipAddress?: Prisma.StringNullableFilter<"Session"> | string | null
+  userAgent?: Prisma.StringNullableFilter<"Session"> | string | null
+  userId?: Prisma.StringFilter<"Session"> | string
 }
 
-export type sessionCreateManyUserInput = {
+export type SessionCreateManyUserInput = {
   id: string
   expiresAt: Date | string
   token: string
   createdAt?: Date | string
-  updatedAt: Date | string
+  updatedAt?: Date | string
   ipAddress?: string | null
   userAgent?: string | null
 }
 
-export type sessionUpdateWithoutUserInput = {
+export type SessionUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   token?: Prisma.StringFieldUpdateOperationsInput | string
@@ -505,7 +505,7 @@ export type sessionUpdateWithoutUserInput = {
   userAgent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
-export type sessionUncheckedUpdateWithoutUserInput = {
+export type SessionUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   token?: Prisma.StringFieldUpdateOperationsInput | string
@@ -515,7 +515,7 @@ export type sessionUncheckedUpdateWithoutUserInput = {
   userAgent?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
-export type sessionUncheckedUpdateManyWithoutUserInput = {
+export type SessionUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   token?: Prisma.StringFieldUpdateOperationsInput | string
@@ -527,7 +527,7 @@ export type sessionUncheckedUpdateManyWithoutUserInput = {
 
 
 
-export type sessionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type SessionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   expiresAt?: boolean
   token?: boolean
@@ -539,7 +539,7 @@ export type sessionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["session"]>
 
-export type sessionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type SessionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   expiresAt?: boolean
   token?: boolean
@@ -551,7 +551,7 @@ export type sessionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["session"]>
 
-export type sessionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type SessionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   expiresAt?: boolean
   token?: boolean
@@ -563,7 +563,7 @@ export type sessionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["session"]>
 
-export type sessionSelectScalar = {
+export type SessionSelectScalar = {
   id?: boolean
   expiresAt?: boolean
   token?: boolean
@@ -574,19 +574,19 @@ export type sessionSelectScalar = {
   userId?: boolean
 }
 
-export type sessionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "expiresAt" | "token" | "createdAt" | "updatedAt" | "ipAddress" | "userAgent" | "userId", ExtArgs["result"]["session"]>
-export type sessionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "expiresAt" | "token" | "createdAt" | "updatedAt" | "ipAddress" | "userAgent" | "userId", ExtArgs["result"]["session"]>
+export type SessionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
-export type sessionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
-export type sessionIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
-export type $sessionPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "session"
+export type $SessionPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "Session"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
   }
@@ -603,18 +603,18 @@ export type $sessionPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   composites: {}
 }
 
-export type sessionGetPayload<S extends boolean | null | undefined | sessionDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$sessionPayload, S>
+export type SessionGetPayload<S extends boolean | null | undefined | SessionDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$SessionPayload, S>
 
-export type sessionCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<sessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type SessionCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<SessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: SessionCountAggregateInputType | true
   }
 
-export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['session'], meta: { name: 'session' } }
+export interface SessionDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Session'], meta: { name: 'Session' } }
   /**
    * Find zero or one Session that matches the filter.
-   * @param {sessionFindUniqueArgs} args - Arguments to find a Session
+   * @param {SessionFindUniqueArgs} args - Arguments to find a Session
    * @example
    * // Get one Session
    * const session = await prisma.session.findUnique({
@@ -623,12 +623,12 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findUnique<T extends sessionFindUniqueArgs>(args: Prisma.SelectSubset<T, sessionFindUniqueArgs<ExtArgs>>): Prisma.Prisma__sessionClient<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends SessionFindUniqueArgs>(args: Prisma.SelectSubset<T, SessionFindUniqueArgs<ExtArgs>>): Prisma.Prisma__SessionClient<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Session that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {sessionFindUniqueOrThrowArgs} args - Arguments to find a Session
+   * @param {SessionFindUniqueOrThrowArgs} args - Arguments to find a Session
    * @example
    * // Get one Session
    * const session = await prisma.session.findUniqueOrThrow({
@@ -637,13 +637,13 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findUniqueOrThrow<T extends sessionFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, sessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__sessionClient<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends SessionFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, SessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__SessionClient<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Session that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {sessionFindFirstArgs} args - Arguments to find a Session
+   * @param {SessionFindFirstArgs} args - Arguments to find a Session
    * @example
    * // Get one Session
    * const session = await prisma.session.findFirst({
@@ -652,14 +652,14 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findFirst<T extends sessionFindFirstArgs>(args?: Prisma.SelectSubset<T, sessionFindFirstArgs<ExtArgs>>): Prisma.Prisma__sessionClient<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends SessionFindFirstArgs>(args?: Prisma.SelectSubset<T, SessionFindFirstArgs<ExtArgs>>): Prisma.Prisma__SessionClient<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Session that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {sessionFindFirstOrThrowArgs} args - Arguments to find a Session
+   * @param {SessionFindFirstOrThrowArgs} args - Arguments to find a Session
    * @example
    * // Get one Session
    * const session = await prisma.session.findFirstOrThrow({
@@ -668,13 +668,13 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findFirstOrThrow<T extends sessionFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, sessionFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__sessionClient<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends SessionFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, SessionFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__SessionClient<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Sessions that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {sessionFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {SessionFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Sessions
    * const sessions = await prisma.session.findMany()
@@ -686,11 +686,11 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * const sessionWithIdOnly = await prisma.session.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends sessionFindManyArgs>(args?: Prisma.SelectSubset<T, sessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends SessionFindManyArgs>(args?: Prisma.SelectSubset<T, SessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Session.
-   * @param {sessionCreateArgs} args - Arguments to create a Session.
+   * @param {SessionCreateArgs} args - Arguments to create a Session.
    * @example
    * // Create one Session
    * const Session = await prisma.session.create({
@@ -700,11 +700,11 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  create<T extends sessionCreateArgs>(args: Prisma.SelectSubset<T, sessionCreateArgs<ExtArgs>>): Prisma.Prisma__sessionClient<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends SessionCreateArgs>(args: Prisma.SelectSubset<T, SessionCreateArgs<ExtArgs>>): Prisma.Prisma__SessionClient<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Sessions.
-   * @param {sessionCreateManyArgs} args - Arguments to create many Sessions.
+   * @param {SessionCreateManyArgs} args - Arguments to create many Sessions.
    * @example
    * // Create many Sessions
    * const session = await prisma.session.createMany({
@@ -714,11 +714,11 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    *     
    */
-  createMany<T extends sessionCreateManyArgs>(args?: Prisma.SelectSubset<T, sessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends SessionCreateManyArgs>(args?: Prisma.SelectSubset<T, SessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create many Sessions and returns the data saved in the database.
-   * @param {sessionCreateManyAndReturnArgs} args - Arguments to create many Sessions.
+   * @param {SessionCreateManyAndReturnArgs} args - Arguments to create many Sessions.
    * @example
    * // Create many Sessions
    * const session = await prisma.session.createManyAndReturn({
@@ -738,11 +738,11 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  createManyAndReturn<T extends sessionCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, sessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+  createManyAndReturn<T extends SessionCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, SessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Delete a Session.
-   * @param {sessionDeleteArgs} args - Arguments to delete one Session.
+   * @param {SessionDeleteArgs} args - Arguments to delete one Session.
    * @example
    * // Delete one Session
    * const Session = await prisma.session.delete({
@@ -752,11 +752,11 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  delete<T extends sessionDeleteArgs>(args: Prisma.SelectSubset<T, sessionDeleteArgs<ExtArgs>>): Prisma.Prisma__sessionClient<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends SessionDeleteArgs>(args: Prisma.SelectSubset<T, SessionDeleteArgs<ExtArgs>>): Prisma.Prisma__SessionClient<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Session.
-   * @param {sessionUpdateArgs} args - Arguments to update one Session.
+   * @param {SessionUpdateArgs} args - Arguments to update one Session.
    * @example
    * // Update one Session
    * const session = await prisma.session.update({
@@ -769,11 +769,11 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  update<T extends sessionUpdateArgs>(args: Prisma.SelectSubset<T, sessionUpdateArgs<ExtArgs>>): Prisma.Prisma__sessionClient<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends SessionUpdateArgs>(args: Prisma.SelectSubset<T, SessionUpdateArgs<ExtArgs>>): Prisma.Prisma__SessionClient<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Sessions.
-   * @param {sessionDeleteManyArgs} args - Arguments to filter Sessions to delete.
+   * @param {SessionDeleteManyArgs} args - Arguments to filter Sessions to delete.
    * @example
    * // Delete a few Sessions
    * const { count } = await prisma.session.deleteMany({
@@ -783,13 +783,13 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  deleteMany<T extends sessionDeleteManyArgs>(args?: Prisma.SelectSubset<T, sessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends SessionDeleteManyArgs>(args?: Prisma.SelectSubset<T, SessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Sessions.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {sessionUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {SessionUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Sessions
    * const session = await prisma.session.updateMany({
@@ -802,11 +802,11 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  updateMany<T extends sessionUpdateManyArgs>(args: Prisma.SelectSubset<T, sessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends SessionUpdateManyArgs>(args: Prisma.SelectSubset<T, SessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Sessions and returns the data updated in the database.
-   * @param {sessionUpdateManyAndReturnArgs} args - Arguments to update many Sessions.
+   * @param {SessionUpdateManyAndReturnArgs} args - Arguments to update many Sessions.
    * @example
    * // Update many Sessions
    * const session = await prisma.session.updateManyAndReturn({
@@ -832,11 +832,11 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  updateManyAndReturn<T extends sessionUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, sessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+  updateManyAndReturn<T extends SessionUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, SessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Create or update one Session.
-   * @param {sessionUpsertArgs} args - Arguments to update or create a Session.
+   * @param {SessionUpsertArgs} args - Arguments to update or create a Session.
    * @example
    * // Update or create a Session
    * const session = await prisma.session.upsert({
@@ -851,14 +851,14 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  upsert<T extends sessionUpsertArgs>(args: Prisma.SelectSubset<T, sessionUpsertArgs<ExtArgs>>): Prisma.Prisma__sessionClient<runtime.Types.Result.GetResult<Prisma.$sessionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends SessionUpsertArgs>(args: Prisma.SelectSubset<T, SessionUpsertArgs<ExtArgs>>): Prisma.Prisma__SessionClient<runtime.Types.Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Sessions.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {sessionCountArgs} args - Arguments to filter Sessions to count.
+   * @param {SessionCountArgs} args - Arguments to filter Sessions to count.
    * @example
    * // Count the number of Sessions
    * const count = await prisma.session.count({
@@ -867,8 +867,8 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
   **/
-  count<T extends sessionCountArgs>(
-    args?: Prisma.Subset<T, sessionCountArgs>,
+  count<T extends SessionCountArgs>(
+    args?: Prisma.Subset<T, SessionCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -907,7 +907,7 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * Group by Session.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {sessionGroupByArgs} args - Group by arguments.
+   * @param {SessionGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -922,14 +922,14 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * 
   **/
   groupBy<
-    T extends sessionGroupByArgs,
+    T extends SessionGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: sessionGroupByArgs['orderBy'] }
-      : { orderBy?: sessionGroupByArgs['orderBy'] },
+      ? { orderBy: SessionGroupByArgs['orderBy'] }
+      : { orderBy?: SessionGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -978,20 +978,20 @@ export interface sessionDelegate<ExtArgs extends runtime.Types.Extensions.Intern
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, sessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, SessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the session model
+ * Fields of the Session model
  */
-readonly fields: sessionFieldRefs;
+readonly fields: SessionFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for session.
+ * The delegate class that acts as a "Promise-like" for Session.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__sessionClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__SessionClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
@@ -1020,431 +1020,431 @@ export interface Prisma__sessionClient<T, Null = never, ExtArgs extends runtime.
 
 
 /**
- * Fields of the session model
+ * Fields of the Session model
  */
-export interface sessionFieldRefs {
-  readonly id: Prisma.FieldRef<"session", 'String'>
-  readonly expiresAt: Prisma.FieldRef<"session", 'DateTime'>
-  readonly token: Prisma.FieldRef<"session", 'String'>
-  readonly createdAt: Prisma.FieldRef<"session", 'DateTime'>
-  readonly updatedAt: Prisma.FieldRef<"session", 'DateTime'>
-  readonly ipAddress: Prisma.FieldRef<"session", 'String'>
-  readonly userAgent: Prisma.FieldRef<"session", 'String'>
-  readonly userId: Prisma.FieldRef<"session", 'String'>
+export interface SessionFieldRefs {
+  readonly id: Prisma.FieldRef<"Session", 'String'>
+  readonly expiresAt: Prisma.FieldRef<"Session", 'DateTime'>
+  readonly token: Prisma.FieldRef<"Session", 'String'>
+  readonly createdAt: Prisma.FieldRef<"Session", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Session", 'DateTime'>
+  readonly ipAddress: Prisma.FieldRef<"Session", 'String'>
+  readonly userAgent: Prisma.FieldRef<"Session", 'String'>
+  readonly userId: Prisma.FieldRef<"Session", 'String'>
 }
     
 
 // Custom InputTypes
 /**
- * session findUnique
+ * Session findUnique
  */
-export type sessionFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelect<ExtArgs> | null
+  select?: Prisma.SessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionInclude<ExtArgs> | null
+  include?: Prisma.SessionInclude<ExtArgs> | null
   /**
-   * Filter, which session to fetch.
+   * Filter, which Session to fetch.
    */
-  where: Prisma.sessionWhereUniqueInput
+  where: Prisma.SessionWhereUniqueInput
 }
 
 /**
- * session findUniqueOrThrow
+ * Session findUniqueOrThrow
  */
-export type sessionFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelect<ExtArgs> | null
+  select?: Prisma.SessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionInclude<ExtArgs> | null
+  include?: Prisma.SessionInclude<ExtArgs> | null
   /**
-   * Filter, which session to fetch.
+   * Filter, which Session to fetch.
    */
-  where: Prisma.sessionWhereUniqueInput
+  where: Prisma.SessionWhereUniqueInput
 }
 
 /**
- * session findFirst
+ * Session findFirst
  */
-export type sessionFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelect<ExtArgs> | null
+  select?: Prisma.SessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionInclude<ExtArgs> | null
+  include?: Prisma.SessionInclude<ExtArgs> | null
   /**
-   * Filter, which session to fetch.
+   * Filter, which Session to fetch.
    */
-  where?: Prisma.sessionWhereInput
+  where?: Prisma.SessionWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of sessions to fetch.
+   * Determine the order of Sessions to fetch.
    */
-  orderBy?: Prisma.sessionOrderByWithRelationInput | Prisma.sessionOrderByWithRelationInput[]
+  orderBy?: Prisma.SessionOrderByWithRelationInput | Prisma.SessionOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for sessions.
+   * Sets the position for searching for Sessions.
    */
-  cursor?: Prisma.sessionWhereUniqueInput
+  cursor?: Prisma.SessionWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` sessions from the position of the cursor.
+   * Take `±n` Sessions from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` sessions.
+   * Skip the first `n` Sessions.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of sessions.
+   * Filter by unique combinations of Sessions.
    */
   distinct?: Prisma.SessionScalarFieldEnum | Prisma.SessionScalarFieldEnum[]
 }
 
 /**
- * session findFirstOrThrow
+ * Session findFirstOrThrow
  */
-export type sessionFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelect<ExtArgs> | null
+  select?: Prisma.SessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionInclude<ExtArgs> | null
+  include?: Prisma.SessionInclude<ExtArgs> | null
   /**
-   * Filter, which session to fetch.
+   * Filter, which Session to fetch.
    */
-  where?: Prisma.sessionWhereInput
+  where?: Prisma.SessionWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of sessions to fetch.
+   * Determine the order of Sessions to fetch.
    */
-  orderBy?: Prisma.sessionOrderByWithRelationInput | Prisma.sessionOrderByWithRelationInput[]
+  orderBy?: Prisma.SessionOrderByWithRelationInput | Prisma.SessionOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for sessions.
+   * Sets the position for searching for Sessions.
    */
-  cursor?: Prisma.sessionWhereUniqueInput
+  cursor?: Prisma.SessionWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` sessions from the position of the cursor.
+   * Take `±n` Sessions from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` sessions.
+   * Skip the first `n` Sessions.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of sessions.
+   * Filter by unique combinations of Sessions.
    */
   distinct?: Prisma.SessionScalarFieldEnum | Prisma.SessionScalarFieldEnum[]
 }
 
 /**
- * session findMany
+ * Session findMany
  */
-export type sessionFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelect<ExtArgs> | null
+  select?: Prisma.SessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionInclude<ExtArgs> | null
+  include?: Prisma.SessionInclude<ExtArgs> | null
   /**
-   * Filter, which sessions to fetch.
+   * Filter, which Sessions to fetch.
    */
-  where?: Prisma.sessionWhereInput
+  where?: Prisma.SessionWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of sessions to fetch.
+   * Determine the order of Sessions to fetch.
    */
-  orderBy?: Prisma.sessionOrderByWithRelationInput | Prisma.sessionOrderByWithRelationInput[]
+  orderBy?: Prisma.SessionOrderByWithRelationInput | Prisma.SessionOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing sessions.
+   * Sets the position for listing Sessions.
    */
-  cursor?: Prisma.sessionWhereUniqueInput
+  cursor?: Prisma.SessionWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` sessions from the position of the cursor.
+   * Take `±n` Sessions from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` sessions.
+   * Skip the first `n` Sessions.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of sessions.
+   * Filter by unique combinations of Sessions.
    */
   distinct?: Prisma.SessionScalarFieldEnum | Prisma.SessionScalarFieldEnum[]
 }
 
 /**
- * session create
+ * Session create
  */
-export type sessionCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelect<ExtArgs> | null
+  select?: Prisma.SessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionInclude<ExtArgs> | null
+  include?: Prisma.SessionInclude<ExtArgs> | null
   /**
-   * The data needed to create a session.
+   * The data needed to create a Session.
    */
-  data: Prisma.XOR<Prisma.sessionCreateInput, Prisma.sessionUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.SessionCreateInput, Prisma.SessionUncheckedCreateInput>
 }
 
 /**
- * session createMany
+ * Session createMany
  */
-export type sessionCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many sessions.
+   * The data used to create many Sessions.
    */
-  data: Prisma.sessionCreateManyInput | Prisma.sessionCreateManyInput[]
+  data: Prisma.SessionCreateManyInput | Prisma.SessionCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * session createManyAndReturn
+ * Session createManyAndReturn
  */
-export type sessionCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelectCreateManyAndReturn<ExtArgs> | null
+  select?: Prisma.SessionSelectCreateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
-   * The data used to create many sessions.
+   * The data used to create many Sessions.
    */
-  data: Prisma.sessionCreateManyInput | Prisma.sessionCreateManyInput[]
+  data: Prisma.SessionCreateManyInput | Prisma.SessionCreateManyInput[]
   skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionIncludeCreateManyAndReturn<ExtArgs> | null
+  include?: Prisma.SessionIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
- * session update
+ * Session update
  */
-export type sessionUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelect<ExtArgs> | null
+  select?: Prisma.SessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionInclude<ExtArgs> | null
+  include?: Prisma.SessionInclude<ExtArgs> | null
   /**
-   * The data needed to update a session.
+   * The data needed to update a Session.
    */
-  data: Prisma.XOR<Prisma.sessionUpdateInput, Prisma.sessionUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.SessionUpdateInput, Prisma.SessionUncheckedUpdateInput>
   /**
-   * Choose, which session to update.
+   * Choose, which Session to update.
    */
-  where: Prisma.sessionWhereUniqueInput
+  where: Prisma.SessionWhereUniqueInput
 }
 
 /**
- * session updateMany
+ * Session updateMany
  */
-export type sessionUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update sessions.
+   * The data used to update Sessions.
    */
-  data: Prisma.XOR<Prisma.sessionUpdateManyMutationInput, Prisma.sessionUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.SessionUpdateManyMutationInput, Prisma.SessionUncheckedUpdateManyInput>
   /**
-   * Filter which sessions to update
+   * Filter which Sessions to update
    */
-  where?: Prisma.sessionWhereInput
+  where?: Prisma.SessionWhereInput
   /**
-   * Limit how many sessions to update.
+   * Limit how many Sessions to update.
    */
   limit?: number
 }
 
 /**
- * session updateManyAndReturn
+ * Session updateManyAndReturn
  */
-export type sessionUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelectUpdateManyAndReturn<ExtArgs> | null
+  select?: Prisma.SessionSelectUpdateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
-   * The data used to update sessions.
+   * The data used to update Sessions.
    */
-  data: Prisma.XOR<Prisma.sessionUpdateManyMutationInput, Prisma.sessionUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.SessionUpdateManyMutationInput, Prisma.SessionUncheckedUpdateManyInput>
   /**
-   * Filter which sessions to update
+   * Filter which Sessions to update
    */
-  where?: Prisma.sessionWhereInput
+  where?: Prisma.SessionWhereInput
   /**
-   * Limit how many sessions to update.
+   * Limit how many Sessions to update.
    */
   limit?: number
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionIncludeUpdateManyAndReturn<ExtArgs> | null
+  include?: Prisma.SessionIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
- * session upsert
+ * Session upsert
  */
-export type sessionUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelect<ExtArgs> | null
+  select?: Prisma.SessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionInclude<ExtArgs> | null
+  include?: Prisma.SessionInclude<ExtArgs> | null
   /**
-   * The filter to search for the session to update in case it exists.
+   * The filter to search for the Session to update in case it exists.
    */
-  where: Prisma.sessionWhereUniqueInput
+  where: Prisma.SessionWhereUniqueInput
   /**
-   * In case the session found by the `where` argument doesn't exist, create a new session with this data.
+   * In case the Session found by the `where` argument doesn't exist, create a new Session with this data.
    */
-  create: Prisma.XOR<Prisma.sessionCreateInput, Prisma.sessionUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.SessionCreateInput, Prisma.SessionUncheckedCreateInput>
   /**
-   * In case the session was found with the provided `where` argument, update it with this data.
+   * In case the Session was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.sessionUpdateInput, Prisma.sessionUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.SessionUpdateInput, Prisma.SessionUncheckedUpdateInput>
 }
 
 /**
- * session delete
+ * Session delete
  */
-export type sessionDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelect<ExtArgs> | null
+  select?: Prisma.SessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionInclude<ExtArgs> | null
+  include?: Prisma.SessionInclude<ExtArgs> | null
   /**
-   * Filter which session to delete.
+   * Filter which Session to delete.
    */
-  where: Prisma.sessionWhereUniqueInput
+  where: Prisma.SessionWhereUniqueInput
 }
 
 /**
- * session deleteMany
+ * Session deleteMany
  */
-export type sessionDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which sessions to delete
+   * Filter which Sessions to delete
    */
-  where?: Prisma.sessionWhereInput
+  where?: Prisma.SessionWhereInput
   /**
-   * Limit how many sessions to delete.
+   * Limit how many Sessions to delete.
    */
   limit?: number
 }
 
 /**
- * session without action
+ * Session without action
  */
-export type sessionDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type SessionDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the session
+   * Select specific fields to fetch from the Session
    */
-  select?: Prisma.sessionSelect<ExtArgs> | null
+  select?: Prisma.SessionSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the session
+   * Omit specific fields from the Session
    */
-  omit?: Prisma.sessionOmit<ExtArgs> | null
+  omit?: Prisma.SessionOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.sessionInclude<ExtArgs> | null
+  include?: Prisma.SessionInclude<ExtArgs> | null
 }
