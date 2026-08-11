@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import prisma from "../lib/prisma";
-import { success } from "better-auth";
+
 
 const propertyRouter = Router();
 
@@ -28,7 +28,7 @@ propertyRouter.get("/api/property", async (req: Request, res: Response) => {
 
 propertyRouter.get("/api/property/sellerId", async (req: Request, res: Response) => {
     try {
-        const { sellerId } = req.body
+        const { sellerId } = req.query
         if (!sellerId) {
             res.status(400).json({
                 success: false,

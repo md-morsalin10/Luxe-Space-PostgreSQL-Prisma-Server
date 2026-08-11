@@ -14,21 +14,21 @@ enum Role {
 }
 
 model User {
-  id            String    @id @default(uuid())
+  id            String   @id @default(uuid())
   name          String
-  email         String    @unique
-  emailVerified Boolean   @default(false)
+  email         String   @unique
+  emailVerified Boolean  @default(false)
   image         String?
-  role          Role      @default(buyer)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  role          Role     @default(buyer)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
   // Auth Relations
   sessions Session[]
   accounts Account[]
 
   // Property Relations
-  ownedProperties Property[] @relation("PropertyOwner")
+  ownedProperties  Property[] @relation("PropertyOwner")
   boughtProperties Property[] @relation("PropertyBuyer")
 
   // Booking Relation
@@ -116,12 +116,28 @@ model Property {
 }
 
 model Booking {
-  id         String   @id @default(uuid())
+  id         String @id @default(uuid())
+  sessionId  String @unique
   propertyId String
+
+  // property
+  title    String
+  price    Float
+  type     String
+  location String
+  image    String?
+
+  // seller 
+  sellerId    String
+  sellerName  String
+  sellerEmail String
+
+  // buyer
   userId     String
-  startDate  DateTime
-  endDate    DateTime
-  status     String   @default("pending")
+  buyerName  String
+  buyerEmail String
+
+  status    String   @default("pending")
 
   user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
