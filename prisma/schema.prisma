@@ -133,19 +133,19 @@ model Booking {
   sellerEmail String
 
   // buyer
-  userId     String
+  buyerId    String
   buyerName  String
   buyerEmail String
 
-  status    String   @default("pending")
+  status String @default("pending")
 
-  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [buyerId], references: [id], onDelete: Cascade)
   property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@index([userId])
+  @@index([buyerId])
   @@index([propertyId])
   @@map("booking")
 }
