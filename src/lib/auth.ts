@@ -19,6 +19,11 @@ export const auth = betterAuth({
         required: false,
         defaultValue: "buyer",
       },
+      isSuspended: {
+        type: "boolean",
+        required: false,
+        defaultValue: false,
+      },
     },
   },
   trustedOrigins: ["http://localhost:3000"],

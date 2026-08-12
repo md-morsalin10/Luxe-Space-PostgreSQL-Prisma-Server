@@ -90,6 +90,42 @@ propertyRouter.get("/api/property/:id", async (req: Request, res: Response) => {
     }
 });
 
+
+propertyRouter.get("/api/features/properties", async (req: Request, res: Response) => {
+    try {
+        const data = await prisma.property.findMany({
+            take: 8,
+            orderBy: {
+                createdAt: 'desc'
+            },
+            include: {
+                seller: {
+                    select: {
+                        id: true,
+                        name: true,
+                        email: true,
+                        image: true,
+                    },
+                },
+            },
+        });
+
+
+        res.json(data)
+        // res.status(200).json({
+        //     success: true,
+        //     data
+        // });
+    }
+    catch (error: any) {
+        res.status(500).json({
+            success: false,
+            message: "Failed to fetch features property data",
+            error: error.message
+        })
+    }
+})
+
 //  CREATE NEW PROPERTY 
 propertyRouter.post("/api/property", async (req: Request, res: Response) => {
     try {
@@ -141,6 +177,54 @@ propertyRouter.post("/api/property", async (req: Request, res: Response) => {
             message: "Property creation failed",
             details: error.message || error,
         });
+    }
+});
+
+// DELETE PROPERTY
+propertyRouter.delete("/api/property/:id", async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        
+        const existingProperty = await prisma.property.findUnique({
+            where: { id: id as string }
+        });
+
+        if (!existingProperty) {
+            return res.status(404).json({ success: false, message: "Property not found" });
+        }
+
+        await prisma.property.delete({
+            where: { id: id as string }
+        });
+
+        res.status(200).json({ success: true, message: "Property deleted successfully" });
+    } catch (error: any) {
+        res.status(500).json({ success: false, message: "Error deleting property", error: error.message });
+    }
+});
+
+// UPDATE PROPERTY
+propertyRouter.put("/api/property/:id", async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const updateData = req.body;
+        
+        const existingProperty = await prisma.property.findUnique({
+            where: { id: id as string }
+        });
+
+        if (!existingProperty) {
+            return res.status(404).json({ success: false, message: "Property not found" });
+        }
+
+        const updatedProperty = await prisma.property.update({
+            where: { id: id as string },
+            data: updateData
+        });
+
+        res.status(200).json({ success: true, message: "Property updated successfully", data: updatedProperty });
+    } catch (error: any) {
+        res.status(500).json({ success: false, message: "Error updating property", error: error.message });
     }
 });
 

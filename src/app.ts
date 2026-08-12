@@ -13,6 +13,9 @@ app.use(cors({
 }));
 app.use(express.json());
 
+import { checkSuspended } from "./middlewares/suspension.js";
+app.use(checkSuspended);
+
 app.use(userRouter)
 app.use(propertyRouter)
 app.use(bookingRoute)
