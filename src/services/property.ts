@@ -5,7 +5,7 @@ import { verifyAdmin, verifySeller, verifyToken } from "../middlewares/verifyTok
 
 const propertyRouter = Router();
 
-//  GET ALL PROPERTIES
+//  GET ALL property
 propertyRouter.get("/api/property", async (req: Request, res: Response) => {
     try {
         const data = await prisma.property.findMany({
