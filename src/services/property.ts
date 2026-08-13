@@ -23,7 +23,12 @@ propertyRouter.get("/api/property", async (req: Request, res: Response) => {
 
         res.status(200).json(data);
     } catch (error: any) {
-        res.status(500).json({ success: false, message: "Failed to fetch properties", error: error.message });
+        console.log("PRISMA REAL ERROR:", error);
+        res.status(500).json({
+            success: false,
+            message: "Failed to fetch properties",
+            error: error?.message || error,
+        });
     }
 });
 
