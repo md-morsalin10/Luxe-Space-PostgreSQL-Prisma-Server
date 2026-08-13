@@ -1,13 +1,14 @@
-// dotenv/config সবার উপরে রাখা ভালো
-import "dotenv/config";
-import { defineConfig } from "@prisma/config";
+import { PrismaClient } from "@prisma/client";
+import dotenv from "dotenv";
 
-export default defineConfig({
-    schema: "prisma/schema.prisma",
-    migrations: {
-        path: "prisma/migrations",
-    },
-    datasource: {
-        url: process.env.DATABASE_URL,
+dotenv.config();
+
+const prisma = new PrismaClient({
+    datasources: {
+        db: {
+            url: process.env.DATABASE_URL,
+        },
     },
 });
+
+export default prisma;
