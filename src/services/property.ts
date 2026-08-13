@@ -187,7 +187,7 @@ propertyRouter.post("/api/property", verifyToken, verifySeller, async (req: Requ
 });
 
 // DELETE PROPERTY
-propertyRouter.delete("/api/property/:id", verifyToken, verifyAdmin, async (req: Request, res: Response) => {
+propertyRouter.delete("/api/property/:id", verifyToken, async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
 
