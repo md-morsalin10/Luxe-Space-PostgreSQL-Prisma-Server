@@ -6,7 +6,7 @@ import { verifyAdmin, verifySeller, verifyToken } from "../middlewares/verifyTok
 const propertyRouter = Router();
 
 //  GET ALL PROPERTIES
-propertyRouter.get("/api/property", verifyToken, async (req: Request, res: Response) => {
+propertyRouter.get("/api/property", async (req: Request, res: Response) => {
     try {
         const data = await prisma.property.findMany({
             include: {
@@ -128,7 +128,7 @@ propertyRouter.get("/api/features/properties", verifyToken, async (req: Request,
 })
 
 //  CREATE NEW PROPERTY 
-propertyRouter.post("/api/property",  async (req: Request, res: Response) => {
+propertyRouter.post("/api/property", verifyToken, verifySeller, async (req: Request, res: Response) => {
     try {
         const {
             title,
