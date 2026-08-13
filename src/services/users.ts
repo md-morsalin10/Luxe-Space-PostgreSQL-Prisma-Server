@@ -1,15 +1,16 @@
 import { Request, Response, Router } from "express";
 import prisma from "../lib/prisma";
+import { verifyAdmin, verifyToken } from "../middlewares/verifyToken";
 
 const userRouter = Router()
 
-userRouter.get("/api/users", async(req:Request, res:Response)=>{
-      const result = await prisma.user.findMany()
-      res.json(result) 
+userRouter.get("/api/users", async (req: Request, res: Response) => {
+    const result = await prisma.user.findMany()
+    res.json(result)
 })
 
 // TOGGLE USER SUSPENSION
-userRouter.patch("/api/users/:id/suspend", async (req: Request, res: Response) => {
+userRouter.patch("/api/users/:id/suspend", verifyToken, verifyAdmin, async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const { isSuspended } = req.body;

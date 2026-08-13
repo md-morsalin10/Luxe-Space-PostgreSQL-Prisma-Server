@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import prisma from "../lib/prisma";
-import { verifyToken } from "../middlewares/verifyToken";
+import { verifyAdmin, verifySeller, verifyToken } from "../middlewares/verifyToken";
 
 
 const propertyRouter = Router();
@@ -27,7 +27,7 @@ propertyRouter.get("/api/property", verifyToken, async (req: Request, res: Respo
     }
 });
 
-propertyRouter.get("/api/property/sellerId", async (req: Request, res: Response) => {
+propertyRouter.get("/api/property/sellerId", verifyToken, verifySeller, async (req: Request, res: Response) => {
     try {
         const { sellerId } = req.query
         if (!sellerId) {
@@ -63,7 +63,7 @@ propertyRouter.get("/api/property/sellerId", async (req: Request, res: Response)
 })
 
 //  GET SINGLE PROPERTY BY ID
-propertyRouter.get("/api/property/:id", async (req: Request, res: Response) => {
+propertyRouter.get("/api/property/:id", verifyToken, async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
 
@@ -92,7 +92,7 @@ propertyRouter.get("/api/property/:id", async (req: Request, res: Response) => {
 });
 
 
-propertyRouter.get("/api/features/properties", async (req: Request, res: Response) => {
+propertyRouter.get("/api/features/properties", verifyToken, async (req: Request, res: Response) => {
     try {
         const data = await prisma.property.findMany({
             take: 8,
@@ -128,7 +128,7 @@ propertyRouter.get("/api/features/properties", async (req: Request, res: Respons
 })
 
 //  CREATE NEW PROPERTY 
-propertyRouter.post("/api/property", async (req: Request, res: Response) => {
+propertyRouter.post("/api/property", verifyToken, verifySeller, async (req: Request, res: Response) => {
     try {
         const {
             title,
@@ -182,10 +182,10 @@ propertyRouter.post("/api/property", async (req: Request, res: Response) => {
 });
 
 // DELETE PROPERTY
-propertyRouter.delete("/api/property/:id", async (req: Request, res: Response) => {
+propertyRouter.delete("/api/property/:id", verifyToken, verifyAdmin, async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
-        
+
         const existingProperty = await prisma.property.findUnique({
             where: { id: id as string }
         });
@@ -205,11 +205,11 @@ propertyRouter.delete("/api/property/:id", async (req: Request, res: Response) =
 });
 
 // UPDATE PROPERTY
-propertyRouter.put("/api/property/:id",verifyToken, async (req: Request, res: Response) => {
+propertyRouter.put("/api/property/:id", verifyToken, verifySeller, async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const updateData = req.body;
-        
+
         const existingProperty = await prisma.property.findUnique({
             where: { id: id as string }
         });

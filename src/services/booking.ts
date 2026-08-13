@@ -1,11 +1,10 @@
 import { Request, Response, Router } from "express";
 import prisma from "../lib/prisma";
+import { verifyBuyer, verifySeller, verifyToken } from "../middlewares/verifyToken";
 
 const bookingRoute = Router();
 
-// POST /api/payment
-// Called by the Next.js /success page after a successful Stripe checkout.
-// Creates a Booking record and atomically marks the Property as "sold".
+
 bookingRoute.post("/api/payment", async (req: Request, res: Response) => {
     try {
         const {
@@ -26,12 +25,12 @@ bookingRoute.post("/api/payment", async (req: Request, res: Response) => {
 
         // ── Explicit input validation ────────────────────────────────────────
         const missing: string[] = [];
-        if (!sessionId)  missing.push("sessionId");
+        if (!sessionId) missing.push("sessionId");
         if (!propertyId) missing.push("propertyId");
-        if (!buyerId)    missing.push("buyerId");
-        if (!sellerId)   missing.push("sellerId");
-        if (!title)      missing.push("title");
-        if (!price)      missing.push("price");
+        if (!buyerId) missing.push("buyerId");
+        if (!sellerId) missing.push("sellerId");
+        if (!title) missing.push("title");
+        if (!price) missing.push("price");
 
         if (missing.length > 0) {
             console.error("[POST /api/payment] Missing required fields:", missing);
@@ -119,9 +118,8 @@ bookingRoute.post("/api/payment", async (req: Request, res: Response) => {
     }
 });
 
-// GET /api/payment/sellerId?sellerId=<id>
-// Returns all bookings where the property was sold by the given seller.
-bookingRoute.get("/api/payment/sellerId", async (req: Request, res: Response) => {
+
+bookingRoute.get("/api/payment/sellerId", verifyToken, verifySeller, async (req: Request, res: Response) => {
     try {
         const { sellerId } = req.query;
 
@@ -148,9 +146,8 @@ bookingRoute.get("/api/payment/sellerId", async (req: Request, res: Response) =>
     }
 });
 
-// GET /api/payment/buyerId?buyerId=<id>
-// Returns all bookings for the given buyer.
-bookingRoute.get("/api/payment/buyerId", async (req: Request, res: Response) => {
+
+bookingRoute.get("/api/payment/buyerId", verifyToken, verifyBuyer, async (req: Request, res: Response) => {
     try {
         const { buyerId } = req.query;
 
