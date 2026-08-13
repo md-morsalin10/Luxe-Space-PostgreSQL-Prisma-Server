@@ -128,7 +128,7 @@ propertyRouter.get("/api/features/properties", verifyToken, async (req: Request,
 })
 
 //  CREATE NEW PROPERTY 
-propertyRouter.post("/api/property", verifyToken, verifySeller, async (req: Request, res: Response) => {
+propertyRouter.post("/api/property",  async (req: Request, res: Response) => {
     try {
         const {
             title,
