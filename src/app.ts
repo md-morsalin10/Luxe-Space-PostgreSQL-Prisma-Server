@@ -5,6 +5,7 @@ import { toNodeHandler } from "better-auth/node";
 import { auth } from "./lib/auth.js";
 import propertyRouter from "./services/property.js";
 import bookingRoute from "./services/booking.js";
+import { checkSuspended } from "./middlewares/suspension.js";
 
 const app = express()
 app.use(cors({
@@ -13,8 +14,9 @@ app.use(cors({
 }));
 app.use(express.json());
 
-import { checkSuspended } from "./middlewares/suspension.js";
+
 app.use(checkSuspended);
+
 
 app.use(userRouter)
 app.use(propertyRouter)

@@ -1,11 +1,12 @@
 import { Request, Response, Router } from "express";
 import prisma from "../lib/prisma";
+import { verifyToken } from "../middlewares/verifyToken";
 
 
 const propertyRouter = Router();
 
 //  GET ALL PROPERTIES
-propertyRouter.get("/api/property", async (req: Request, res: Response) => {
+propertyRouter.get("/api/property", verifyToken, async (req: Request, res: Response) => {
     try {
         const data = await prisma.property.findMany({
             include: {
@@ -204,7 +205,7 @@ propertyRouter.delete("/api/property/:id", async (req: Request, res: Response) =
 });
 
 // UPDATE PROPERTY
-propertyRouter.put("/api/property/:id", async (req: Request, res: Response) => {
+propertyRouter.put("/api/property/:id",verifyToken, async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const updateData = req.body;
