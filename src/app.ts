@@ -9,41 +9,44 @@ import { checkSuspended } from "./middlewares/suspension.js";
 
 const app = express();
 
-// Allowed origins
+// 1. Allowed Origins (সামনে/পেছনে কোনো টাইপো বা Trailing Slash থাকবে না)
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://luxe-space-prisma-postgres-sql-client-d8n2o9gns.vercel.app"
+  "https://luxe-space-prisma-postgre-sql-clien.vercel.app",
 ];
 
 if (process.env.FRONTEND_URL) {
-  // Trailing slash থাকলে তা সরিয়ে যোগ করবে
   allowedOrigins.push(process.env.FRONTEND_URL.replace(/\/$/, ""));
 }
 
+// 2. Simple & Rock-Solid CORS Middleware
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps, curl, or Postman)
+      // Postman/Server-to-Server অথবা Valid Origins এলাউ করবে
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        callback(null, true); // Production-এ strict করতে চাইলে: callback(new Error("Not allowed by CORS"))
+        callback(null, true); // Dev/Testing সহজ রাখতে True রাখলাম
       }
     },
     credentials: true,
   })
 );
 
+// 3. Body Parser
 app.use(express.json());
 
-app.all(/^\/api\/auth/, toNodeHandler(auth));
+// 4. Better Auth Route (সব Auth Endpoint নিখুঁতভাবে হ্যান্ডেল করার জন্য string path ব্যবহার করা নিরাপদ)
+app.all("/api/auth/*", toNodeHandler(auth));
 
+// 5. Middlewares & Routes
 app.use(checkSuspended);
-
 app.use(userRouter);
 app.use(propertyRouter);
 app.use(bookingRoute);
 
+// 6. Base Route
 app.get("/", async (req, res) => {
   res.send({
     success: true,
