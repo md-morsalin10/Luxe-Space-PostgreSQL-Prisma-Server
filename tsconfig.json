@@ -3,6 +3,8 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "target": "ES2023",
+    "skipLibCheck": true,        
+    "noEmitOnError": false,
     "strict": true,
     "esModuleInterop": true,
     "ignoreDeprecations": "6.0",
