@@ -26,7 +26,7 @@ export const auth = betterAuth({
       },
     },
   },
-  trustedOrigins: ["http://localhost:3000"],
+  trustedOrigins: process.env.FRONTEND_URL ? [process.env.FRONTEND_URL, "http://localhost:3000"] : ["http://localhost:3000"],
   baseURL: process.env.BETTER_AUTH_URL || "http://localhost:5000",
   // You can add more Better-Auth configuration here (e.g., social providers)
 });
