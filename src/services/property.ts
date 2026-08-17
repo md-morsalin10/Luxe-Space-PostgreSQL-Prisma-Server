@@ -97,7 +97,7 @@ propertyRouter.get("/api/property/:id", verifyToken, async (req: Request, res: R
 });
 
 
-propertyRouter.get("/api/features/properties", verifyToken, async (req: Request, res: Response) => {
+propertyRouter.get("/api/features/properties",  async (req: Request, res: Response) => {
     try {
         const data = await prisma.property.findMany({
             take: 8,
